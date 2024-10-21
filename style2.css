@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+#game {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: #f7f7f7;
+}
+
+#player {
+    position: absolute;
+    bottom: 20px;
+    left: calc(50% - 30px); /* Środek ekranu */
+    width: 60px;  /* Zwiększ rozmiar */
+    height: 60px; /* Zwiększ rozmiar */
+    background-color: green;
+}
+
+.car {
+    position: absolute;
+    bottom: 20px;
+    width: 60px;  /* Zwiększ rozmiar */
+    height: 30px; /* Zwiększ rozmiar */
+    background-color: red;
+}

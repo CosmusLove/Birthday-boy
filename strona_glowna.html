@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gify</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(to bottom, #1c1c1c, #6c6c6c); /* Ciemne tło z gradientem */
+            font-family: 'Arial', sans-serif;
+            overflow: hidden; /* Ukrywa nadmiarowe elementy */
+        }
+        .gif-container {
+            width: 90vw; /* Szerokość kontenera na 90% widoku */
+            height: 90vh; /* Wysokość kontenera na 90% widoku */
+            overflow: hidden; /* Ukrywa nadmiarowe GIF-y */
+            position: relative; /* Umożliwia absolutne pozycjonowanie GIF-ów */
+        }
+        .gif {
+            position: absolute;
+            width: 100%; /* Szerokość kontenera */
+            height: 100%; /* Wysokość kontenera */
+            opacity: 0; /* Początkowa przezroczystość */
+            transition: opacity 0.5s; /* Umożliwia płynne przejście */
+        }
+        .gif.active {
+            opacity: 1; /* Ustawia widoczność aktywnego GIF-a */
+        }
+        @keyframes move {
+            0% {
+                transform: translate(0, 0); /* Początkowa pozycja */
+            }
+            25% {
+                transform: translate(-20px, -20px); /* Ruch w górę-lewo */
+            }
+            50% {
+                transform: translate(20px, -20px); /* Ruch w górę-prawo */
+            }
+            75% {
+                transform: translate(-20px, 20px); /* Ruch w dół-lewo */
+            }
+            100% {
+                transform: translate(20px, 20px); /* Ruch w dół-prawo */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="gif-container">
+        <img src="gif/1.gif" class="gif active" alt="GIF 1">
+        <img src="gif/2.gif" class="gif" alt="GIF 2">
+        <img src="gif/3.gif" class="gif" alt="GIF 2">
+        <img src="gif/4.gif" class="gif" alt="GIF 2">
+        <img src="gif/5.gif" class="gif" alt="GIF 2">
+        <img src="gif/6.gif" class="gif" alt="GIF 2">
+        <img src="gif/7.gif" class="gif" alt="GIF 2">
+        <img src="gif/8.gif" class="gif" alt="GIF 2">
+        <img src="gif/9.gif" class="gif" alt="GIF 2">
+        <img src="gif/10.gif" class="gif" alt="GIF 2">
+        <img src="gif/11.gif" class="gif" alt="GIF 2">
+        <img src="gif/12.gif" class="gif" alt="GIF 2">
+        <img src="gif/13.gif" class="gif" alt="GIF 2">
+        <img src="gif/14.gif" class="gif" alt="GIF 2">
+
+    </div>
+
+    <script>
+        const gifs = document.querySelectorAll('.gif');
+        let currentIndex = 0;
+
+        function showNextGif() {
+            gifs[currentIndex].classList.remove('active'); // Ukryj obecny GIF
+            currentIndex = (currentIndex + 1) % gifs.length; // Zwiększ indeks
+            gifs[currentIndex].classList.add('active'); // Pokaż następny GIF
+            gifs[currentIndex].style.animation = 'move 2s infinite'; // Dodaj animację ruchu
+        }
+
+        // Zmiana GIF-a co 2 sekundy
+        setInterval(showNextGif, 2000);
+    </script>
+</body>
+</html>

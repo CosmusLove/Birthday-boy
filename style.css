@@ -1,0 +1,257 @@
+/* Resetowanie marginesów i paddingu */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+/* Styl dla menu */
+nav {
+    background-color: #333;
+    padding: 10px 0;
+    position: fixed; /* Menu jest przyklejone do górnej krawędzi */
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ustawienie wyższego priorytetu niż dla obrazu */
+}
+
+.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.menu li a {
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: block;
+}
+
+.menu li a:hover {
+    background-color: #111;
+}
+
+:root {
+    --gd1-color1: #12c2e9;
+    --gd1-color2: #f64f59;
+    
+    --gd2-color1: #a8ff78;
+    --gd2-color2: #78ffd6;
+    
+    --gd3-color1: #f12711;
+    --gd3-color2: #f5af19;
+  }
+  
+  body {
+    font-family: 'Montserrat', sans-sherif;
+    background: radial-gradient(ellipse at center,  #222, #222, #111);
+    background-repeat: no-repeat;
+    height: 100vh;
+    color: #ffffff;
+    overflow: hidden;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .card {
+    position: relative;
+    width: 300px;
+    height: 450px;
+    margin: 0 50px;
+  }
+  
+  .card .content {
+    overflow: hidden;
+    border-radius: 20px;
+    height: 100%;
+  }
+  
+  .card .image img {
+    display: block;
+    filter: brightness(60%);
+  }
+  
+  .card .title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: right;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7) 50%);
+    padding: 40px 20px 20px;
+    font-size: 2rem;
+    border-radius: 20px;
+  }
+  
+  .card .author {
+    font-size: 0.8rem;
+    opacity: 0.6;
+  }
+  
+  /* ======================= */
+  
+  .card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background-color: #fff;
+    border-radius: 20px;
+    z-index: -1;
+    transform: skew(1.5deg, 1.5deg);
+    background: linear-gradient(315deg, var(--gd1-color1), var(--gd1-color2));
+  }
+  
+  .card:nth-child(2)::before {
+    background: linear-gradient(315deg, var(--gd2-color1), var(--gd2-color2));
+  }
+  
+  .card:nth-child(3)::before {
+    background: linear-gradient(315deg, var(--gd3-color1), var(--gd3-color2));
+  }
+
+
+  /* Resetowanie marginesów i paddingu */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+/* Styl dla menu */
+nav {
+    background-color: #333;
+    padding: 10px 0;
+    position: fixed; /* Menu jest przyklejone do górnej krawędzi */
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ustawienie wyższego priorytetu niż dla obrazu */
+}
+
+/* Styl dla elementów menu */
+.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.menu li a {
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: block;
+}
+
+.menu li a:hover {
+    background-color: #111;
+}
+
+/* Styl dla kart */
+.card {
+    position: relative;
+    width: 300px; /* Ustalona szerokość kart */
+    height: 450px; /* Ustalona wysokość kart */
+    margin: 20px; /* Marginesy wokół kart */
+    overflow: hidden; /* Ukrycie elementów wychodzących poza kartę */
+}
+
+/* Styl dla zawartości kart */
+.content {
+    overflow: hidden;
+    border-radius: 20px;
+    height: 100%;
+}
+
+.image img {
+    display: block;
+    max-width: 90%; /* Obrazki będą responsywne */
+    height: 150%; /* Zachowanie proporcji */
+    margin: 4%;
+}
+
+.title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: right;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7) 50%);
+    padding: 40px 20px 20px;
+    font-size: 2rem;
+    border-radius: 20px;
+}
+
+.author {
+    font-size: 0.8rem;
+    opacity: 0.6;
+}
+
+/* Media Queries dla responsywności */
+@media (max-width: 768px) {
+    .card {
+        width: calc(50% - 20px); /* Karty na tabletach */
+        height: auto; /* Automatyczna wysokość */
+        margin: 10px; /* Mniejsze marginesy */
+    }
+
+    .title {
+        font-size: 1.5rem; /* Mniejsze fonty na tabletach */
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: 100%; /* Karty na telefonach zajmują 100% szerokości */
+        height: auto; /* Automatyczna wysokość */
+    }
+
+    .title {
+        font-size: 1.2rem; /* Jeszcze mniejsze fonty na telefonach */
+    }
+
+    .author {
+        font-size: 0.7rem; /* Zmniejszenie rozmiaru autora */
+    }
+
+    nav {
+        padding: 5px 0; /* Mniejsze paddingi dla menu na telefonach */
+    }
+
+    .menu li a {
+        padding: 5px 10px; /* Mniejsze paddingi dla linków w menu na telefonach */
+    }
+}
+
+
+
+.card:hover {
+    transform: scale(1.05); /* Powiększenie karty przy najechaniu */
+}
+
+/* Styl dla nieodwiedzonych linków */
+.card:link {
+    color: inherit; /* Kolor dla kart nieodwiedzonych */
+}
+
+/* Styl dla odwiedzonych linków */
+.card:visited {
+    color: inherit; /* Kolor dla kart odwiedzonych */
+}
+
+/* Styl dla zawartości kart */
+.content {
+    overflow: hidden;
+    height: 100%;
+}
+
+

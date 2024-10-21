@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Życzenia Pocztówka z Fajerwerkami</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: linear-gradient(to right, #f0f8ff, #d1e0e0);
+            overflow: hidden; /* Ukrywa fajerwerki wychodzące poza ekran */
+            font-family: 'Arial', sans-serif;
+        }
+        .card {
+            background-color: #fff;
+            border: 2px solid #4CAF50;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 500px;
+            position: relative;
+            z-index: 1; /* Wyższy z-index niż fajerwerki */
+        }
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            background-color: rgba(76, 175, 80, 0.1);
+            border-radius: 15px;
+            z-index: 0;
+        }
+        h1 {
+            font-size: 28px;
+            color: #4CAF50;
+            margin: 0;
+        }
+        p {
+            font-size: 20px;
+            color: #333;
+            margin-top: 10px;
+        }
+        .footer {
+            font-size: 16px;
+            color: #777;
+            margin-top: 20px;
+        }
+
+        /* Fajerwerki */
+        .firework {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            opacity: 0.9;
+            animation: explode 0.6s ease forwards;
+        }
+
+        @keyframes explode {
+            0% {
+                transform: scale(0);
+            }
+            50% {
+                transform: scale(2);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(0);
+                opacity: 0; /* Znikanie */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>🎉 Życzenia! 🎉</h1>
+        <p>Ali, Alan, Anal, jedno i to samo, Choć nadal mam na ciebie focha, życzyć chcę ci wszystkiego najlepszego! Obyś wreszcie znalazł wymarzonego chłopaka. Niech spełnią się Twoje marzenia!</p>
+        <div class="footer">Z najlepszymi pozdrowieniami!</div>
+    </div>
+
+    <script>
+        // Tworzenie fajerwerków
+        function createFirework() {
+            const firework = document.createElement('div');
+            firework.className = 'firework';
+            firework.style.left = Math.random() * 100 + 'vw'; // Losowa pozycja X
+            firework.style.bottom = Math.random() * 50 + 50 + 'vh'; // Losowa pozycja Y
+            firework.style.backgroundColor = ['#FF5733', '#FFC300', '#DAF7A6', '#C70039'][Math.floor(Math.random() * 4)];
+            firework.style.animationDuration = (Math.random() * 0.5 + 0.5) + 's'; // Losowy czas trwania animacji
+            document.body.appendChild(firework);
+
+            // Usunięcie fajerwerków po animacji
+            firework.addEventListener('animationend', () => {
+                firework.remove();
+            });
+        }
+
+        // Generowanie fajerwerków co 150 ms (więcej)
+        setInterval(createFirework, 150);
+    </script>
+</body>
+</html>
